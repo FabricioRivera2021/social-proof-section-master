@@ -220,13 +220,19 @@ p {
 }
 
 @media (max-width: 530px) {
+  body {
+    background: url("../images/bg-pattern-top-desktop.svg") no-repeat top left, url("../images/bg-pattern-bottom-desktop.svg") no-repeat bottom right;
+    background-size: auto, auto;
+  }
+
   main {
     width: unset;
-    max-width: 400px;
+    max-width: 530px;
     min-width: 375px;
     height: 100vh;
     display: grid;
-    grid-template-columns: 1fr;
+    place-items: center;
+    grid-template-columns: 100%;
     grid-template-rows: 1fr 1fr 1fr 20px;
     grid-template-areas:
       "hero"
@@ -236,17 +242,17 @@ p {
   }
 
   main::after {
-    content: url(./images/bg-pattern-top-mobile.svg);
+    content: "";
   }
 
   main::before {
-    content: url(./images/bg-pattern-bottom-mobile.svg);
+    content: "";
   }
 
   .hero {
+    padding: 0 50px;
     place-self: center;
     width: 95%;
-    max-width: 300px;
     margin-left: 0;
     margin-top: 120px;
     grid-area: hero;
@@ -268,6 +274,16 @@ p {
     margin-bottom: 50px;
     grid-area: rates;
   }
+  .stars {
+    width: 100px;
+    height: 20px;
+    margin-right: 5px;
+    background-image: url(./images/icon-star.svg);
+    background-repeat: space;
+  }
+  .rates-card p {
+    font-size: 0.7rem;
+  }
 
   .rates .rates-card:first-of-type {
     justify-self: center;
@@ -277,7 +293,7 @@ p {
   }
   .reviews {
     height: initial;
-    width: 375px;
+    /* width: 375px; */
     grid-area: reviews;
     display: grid;
     grid-template-columns: 1fr;
